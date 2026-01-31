@@ -5,109 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Global Clicker</title>
   <style>
-    body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #fff;
-  padding: 40px 0;
-  margin: 0;
-  text-align: center;
-}
-
-.game {
-  background: rgba(0,0,0,0.25);
-  padding: 30px;
-  border-radius: 16px;
-  display: inline-block; /* 박스 크기만큼만 */
-  text-align: center;
-  width: 320px;
-  max-width: 90%; /* 모바일 대응 */
-}
-
-.ad-box {
-  margin-top: 20px;
-  padding: 10px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 10px;
-  font-size: 14px;
-}
-
-button {
-  font-size: 20px;
-  padding: 15px 25px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.click { background: #ffd166; }
-.upgrade { background: #06d6a0; }
-
-.site-description {
-  margin-top: 20px;
-  max-width: 320px;
-  text-align: center;
-}
-
-
-.game {
-  background: rgba(0,0,0,0.25);
-  padding: 30px;
-  border-radius: 16px;
-  display: inline-block; /* 박스 크기만큼만 */
-}
-
+    /* 전체 화면 중앙 정렬 */
+    body, html {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
     }
+
+    /* 게임 박스 */
     .game {
       background: rgba(0,0,0,0.25);
       padding: 30px;
       border-radius: 16px;
-      text-align: center;
       width: 320px;
+      max-width: 90%;
+      box-sizing: border-box;
     }
-    h1 { margin-bottom: 10px; }
+
+    h1 { margin-bottom: 10px; font-size: 24px; }
+    p { margin: 5px 0; }
+
     button {
-      font-size: 20px;
-      padding: 15px 25px;
+      font-size: 18px;
+      padding: 12px 20px;
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      margin-top: 15px;
-    }
-    .click {
-      background: #ffd166;
-    }
-    .upgrade {
-      background: #06d6a0;
       margin-top: 10px;
     }
+
+    .click { background: #ffd166; }
+    .upgrade { background: #06d6a0; margin-top: 10px; }
+
     .ad-box {
-      margin-top: 20px;
-      padding: 10px;
+      margin-top: 15px;
+      padding: 8px;
       background: rgba(255,255,255,0.15);
       border-radius: 10px;
-      font-size: 14px;
+      font-size: 12px;
+    }
+
+    /* 설명 문구 */
+    .site-description {
+      margin-top: 20px;
+      font-size: 12px;  /* 글씨 작게 */
+      max-width: 320px;
+      line-height: 1.4;
+    }
+
+    /* 모바일/반응형 조정 */
+    @media (max-width: 500px) {
+      .game { width: 90%; }
+      h1 { font-size: 20px; }
+      button { font-size: 16px; padding: 10px 18px; }
+      .site-description { font-size: 10px; }
     }
   </style>
 </head>
 <body>
+  <!-- 게임 박스 -->
   <div class="game">
     <h1>🌍 Global Clicker</h1>
     <p>Score: <span id="score">0</span></p>
     <p>Per Click: <span id="perClick">1</span></p>
 
     <button class="click" onclick="clickScore()">CLICK</button>
-    <br />
+    <br>
     <button class="upgrade" onclick="upgrade()">Upgrade (Cost: <span id="cost">10</span>)</button>
 
     <div class="ad-box">
-      <!-- Google AdSense / Ad Network Placeholder -->
       Ad Space (수익창출 영역)
     </div>
   </div>
 
+  <!-- 설명 문구 -->
+  <div class="site-description">
+    <hr>
+    <p>This website provides a simple browser-based game for entertainment.</p>
+    <p>The site may display advertisements to support its operation.</p>
+    <p>Contact: tomarswrld09@gmail.com</p>
+  </div>
+
+  <!-- 게임 JS -->
   <script>
     let score = 0;
     let perClick = 1;
@@ -135,25 +122,5 @@ button {
       document.getElementById('cost').innerText = cost;
     }
   </script>
-  <div style="margin-top:20px; clear:both;">
-  <hr>
-  <p>This website provides a simple browser-based game for entertainment.</p>
-  <p>The site may display advertisements to support its operation.</p>
-  <p>Contact: tomarswrld09@gmail.com</p>
-</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

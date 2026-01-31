@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Clicker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .game {
+      background: rgba(0,0,0,0.25);
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      width: 320px;
+    }
+    h1 { margin-bottom: 10px; }
+    button {
+      font-size: 20px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .click {
+      background: #ffd166;
+    }
+    .upgrade {
+      background: #06d6a0;
+      margin-top: 10px;
+    }
+    .ad-box {
+      margin-top: 20px;
+      padding: 10px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game">
+    <h1>🌍 Global Clicker</h1>
+    <p>Score: <span id="score">0</span></p>
+    <p>Per Click: <span id="perClick">1</span></p>
+
+    <button class="click" onclick="clickScore()">CLICK</button>
+    <br />
+    <button class="upgrade" onclick="upgrade()">Upgrade (Cost: <span id="cost">10</span>)</button>
+
+    <div class="ad-box">
+      <!-- Google AdSense / Ad Network Placeholder -->
+      Ad Space (수익창출 영역)
+    </div>
+  </div>
+
+  <script>
+    let score = 0;
+    let perClick = 1;
+    let cost = 10;
+
+    function clickScore() {
+      score += perClick;
+      updateUI();
+    }
+
+    function upgrade() {
+      if (score >= cost) {
+        score -= cost;
+        perClick += 1;
+        cost = Math.floor(cost * 1.7);
+        updateUI();
+      } else {
+        alert('Not enough score!');
+      }
+    }
+
+    function updateUI() {
+      document.getElementById('score').innerText = score;
+      document.getElementById('perClick').innerText = perClick;
+      document.getElementById('cost').innerText = cost;
+    }
+  </script>
+</body>
+</html>
